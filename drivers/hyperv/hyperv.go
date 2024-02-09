@@ -150,6 +150,8 @@ func (d *Driver) GetState() (state.State, error) {
 	switch resp[0] {
 	case "Running":
 		return state.Running, nil
+	case "Saved":
+		fallthrough
 	case "Off":
 		return state.Stopped, nil
 	default:
